@@ -14,16 +14,16 @@ describe('Delete user', () => {
         }
 
         chai.request(server)
-        .post('/users')
-        .send(userReqBody)
-        .then((res) => {
-            id = JSON.parse(res.text).id;
-        });
+            .post('/users')
+            .send(userReqBody)
+            .then((res) => {
+                id = JSON.parse(res.text).id;
+            });
 
         chai.request(server)
-        .delete('/users/${id}')
-        .then((res) => {
-            res.should.have.status(204);
-        });
+            .delete('/users/${id}')
+            .then((res) => {
+                res.should.have.status(204);
+            });
     });
 });

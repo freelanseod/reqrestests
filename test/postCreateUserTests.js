@@ -15,15 +15,15 @@ describe('Create new user', () => {
         }
 
         chai.request(server)
-        .post('/users')
-        .send(userReqBody)
-        .then((res) => {
-            res.should.have.status(201);
-            res.body.should.be.a('Object');
-            res.body.should.have.property('name').equals('user one');
-            res.body.should.have.property('job').equals('user job one');
-            res.body.should.have.property('id');
-            res.body.should.have.property('createdAt');
-        });
+            .post('/users')
+            .send(userReqBody)
+            .then((res) => {
+                res.should.have.status(201);
+                res.body.should.be.a('Object');
+                res.body.should.have.property('name').equals('user one');
+                res.body.should.have.property('job').equals('user job one');
+                res.body.should.have.property('id');
+                res.body.should.have.property('createdAt');
+            });
     });
 });

@@ -6,16 +6,11 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {
-    "chai-http": "^4.3.0",
-    "mocha-brew": "^1.0.0"
-  },
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^8.1.3"
-  },
   "scripts": {
-    "test": "mocha"
+    "pretest": "rm -rf allure-results",
+    "test": "npm-run-all -r -p test:*",
+    "test:mocha": "sleep 1 && multi='progress=- mocha-allure-reporter=-' mocha",
+    "report": "allure generate allure-results --clean -o allure-report && allure open allure-report"
   },
   "repository": {
     "type": "git",
@@ -27,5 +22,17 @@
   "bugs": {
     "url": "https://github.com/freelanseod/reqrestests/issues"
   },
-  "homepage": "https://github.com/freelanseod/reqrestests#readme"
+  "homepage": "https://github.com/freelanseod/reqrestests#readme",
+  "devDependencies": {
+    "allure-commandline": "^2.0.0",
+    "chai": "^4.0.2",
+    "eslint": "^7.11.0",
+    "mocha": "^5.2.0",
+    "mocha-allure-reporter": "^1.2.0",
+    "mocha-multi": "^0.11.0",
+    "npm-run-all": "^4.0.2"
+  },
+  "dependencies": {
+    "chai-http": "^4.3.0"
+  }
 }
